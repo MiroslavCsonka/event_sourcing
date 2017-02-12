@@ -1,0 +1,12 @@
+<%= form_for Events::SignedUp.new, as: :event, url: events_path do |f| %>
+    <%= f.text_field(:email) %>
+    <br>
+    <%= f.text_field(:password) %>
+    <%= f.hidden_field(:event_type, value: Events::SignedUp.to_s) %>
+    <%= f.hidden_field(:aggregate_root_uuid, value: @loan_application_uuid) %>
+    <%= f.hidden_field(:aggregate_root_name, value: LoanApplication) %>
+    <%= f.hidden_field(:referer, value: 'first_step') %>
+
+
+    <%= f.submit 'Sign up' %>
+<% end %>
